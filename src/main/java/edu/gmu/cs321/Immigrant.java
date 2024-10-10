@@ -9,4 +9,12 @@ public class Immigrant {
     return this.id;
 }
 
+    public String whatEver() {
+        return "";
+    }
+
+    public static boolean testMethod(boolean a) {
+        return a;
+    }
+
 }
