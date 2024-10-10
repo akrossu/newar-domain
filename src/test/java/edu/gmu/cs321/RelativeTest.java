@@ -6,4 +6,5 @@ import org.junit.Test;
 public class RelativeTest
 {
     Relative testRelative=new Relative();
+    
 }
