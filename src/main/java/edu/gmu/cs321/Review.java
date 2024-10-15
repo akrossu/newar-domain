@@ -1,4 +1,4 @@
-package edu.gmu;
+package edu.gmu.cs321;
 
 public class Review {
     
