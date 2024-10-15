@@ -1,5 +1,6 @@
 package edu.gmu.cs321;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 public class ImmigrantTest
 {
