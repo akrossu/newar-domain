@@ -1,12 +1,12 @@
 package edu.gmu.cs321;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 /**
- * Unit test for simple App.
+ * Unit test for simple Approval.
  */
-public class AppTest 
+public class ApprovalTest 
 {
     /**
      * Rigorous Test :-)

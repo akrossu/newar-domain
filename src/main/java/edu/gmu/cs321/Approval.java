@@ -4,7 +4,7 @@ package edu.gmu.cs321;
  * Hello world!
  *
  */
-public class App 
+public class Approval 
 {
     public static void main( String[] args )
     {
