@@ -6,9 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * ImmFormTest is responsible for testing methods of ImmForm
  */
-public class ImmFormTest
-{
-<<<<<<< HEAD
+public class ImmFormTest {
     private Immigrant immigrant;
     private ImmRelative relative;
     private ImmForm immForm;
@@ -41,7 +39,8 @@ public class ImmFormTest
     public void testUpdateFormStatus() {
         immForm.updateFormStatus("Approved");
         assertEquals("Approved", immForm.getFormStatus(), "Form status should be updated.");
-=======
+    }
+
     /**
      * Testing validate form.
      */
@@ -112,7 +111,5 @@ public class ImmFormTest
         Immigrant testImm=new Immigrant();
         ImmForm testImmForm=new ImmForm(testImm, null, null, null);
         assertTrue(testImmForm.updateFormStatus("no"));
->>>>>>> 168e13fb1ed8b5c8c9151df9ca0f46bc95e9daaf
     }
-
 }
