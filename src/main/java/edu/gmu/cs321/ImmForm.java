@@ -13,7 +13,6 @@ public class ImmForm
             this.creationDate = creationDate;
             this.status = status;
     }
-    
     public boolean validateForm() {
         if (immigrant == null || relative == null) {
             return false; // Fail if critical fields are missing
