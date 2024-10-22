@@ -1,12 +1,13 @@
 package edu.gmu.cs321;
 /**
- * Review is responsible for Review step
+ * Data Entry is used for inputed data
  */
-public class Review {
+public class DataEntry {
     /**
      * object variables
      */
-    private ImmForm ImmForm;
+    private Boolean allFieldsFIlled;
+    private ImmForm ImmFormTemplate;
 
     /**
      * validate Fields
@@ -16,17 +17,17 @@ public class Review {
         return -1;
     }
     /**
-     * get workflowForm
+     * get Form Template
      * Currently returns a bool, but might return the form template later, tbd
      */
-    public Boolean getWorkflowForm()
+    public Boolean getFormTemplate()
     {
         return false;
     }
     /**
-     * update a worflow form
+     * add a worflow form
      */
-    public Boolean updateWorkflowForm()
+    public Boolean addWorkflowForm()
     {
         return false;
     }
