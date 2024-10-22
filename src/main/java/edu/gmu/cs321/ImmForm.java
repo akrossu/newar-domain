@@ -29,12 +29,14 @@ public class ImmForm
     public String getCreationDate() {
         return creationDate;
     }
-    public void setCreationDate(String creationDate) {
+    public boolean setCreationDate(String creationDate) {
         this.creationDate = creationDate;
+        return true;
     }
     public String getFormStatus() {
         return status; }
-    public void updateFormStatus(String newStatus) {
+    public boolean updateFormStatus(String newStatus) {
         status=newStatus;
+        return true;
     }
 }
