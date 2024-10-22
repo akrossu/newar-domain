@@ -1,28 +1,33 @@
 package edu.gmu.cs321;
 
-public class Immigrant {
+public class Immigrant extends Person {
+    private int immID;
+    private String citizenshipStatus;
 
-    private int id;
-    private String name, citizenshipStatus;
-
-    public Immigrant()
-    {
-        this.id=0;
-        this.name="";
-        this.citizenshipStatus="well... kind of-";
+    protected Immigrant(Builder builder) {
+        super(builder);
+        this.immID = builder.immID;
+        this.citizenshipStatus = builder.citizenshipStatus;
     }
 
-    public int getID()
-    {
-        return this.id;
-    }
+    public int getID() { return immID; }
+    public String getCitizenshipStatus() { return citizenshipStatus; }
 
-    public String whatEver() {
-        return "";
-    }
+    public static class Builder<T extends Builder<T>> extends Person.Builder<T> {
+        protected int immID;
+        protected String citizenshipStatus;
 
-    public static boolean testMethod(boolean a) {
-        return a;
-    }
+        public T setID(int immID) {
+            this.immID = immID;
+            return self();
+        }
 
+        public T setCitizenshipStatus(String citizenshipStatus) {
+            this.citizenshipStatus = citizenshipStatus;
+            return self();
+        }
+
+        @Override
+        public Immigrant build() { return new Immigrant(this); }
+    }
 }

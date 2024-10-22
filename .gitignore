@@ -3,3 +3,8 @@
 /.vscode
 .vscode/
 .vscode/settings.json
+
+./target
+target/
+/target
+*.class
