@@ -1,13 +1,34 @@
 package edu.gmu.cs321;
 
 /**
- * Hello world!
- *
+ * Approval responsible for approving
  */
 public class Approval 
 {
-    public static void main( String[] args )
+    /**
+     * object variables
+     */
+    private ImmForm ImmForm;
+
+    /**
+     * validate Fields
+     */
+    public Boolean sendEmail()
     {
-        System.out.println( "Hello World!" );
+        return false;
+    }
+    /**
+     * get workflowForm
+     * Currently returns nothing, but is currently being discussed for change.
+     */
+    public void getWorkflowForm()
+    {
+    }
+    /**
+     * add a worflow form
+     */
+    public Boolean updateWorkflowForm()
+    {
+        return false;
     }
 }
