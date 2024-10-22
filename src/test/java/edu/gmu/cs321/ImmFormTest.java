@@ -2,9 +2,14 @@ package edu.gmu.cs321;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-
+/**
+ * ImmFormTest is responsible for testing methods of ImmForm
+ */
 public class ImmFormTest
 {
+    /**
+     * Testing validate form.
+     */
     @Test
     public void testValidateForm() {
         Immigrant testImm=new Immigrant();
@@ -12,7 +17,9 @@ public class ImmFormTest
         ImmForm testImmForm= new ImmForm(testImm, null, null, null);
         assertTrue(testImmForm.validateForm());
     }
-
+    /**
+     * testing getImmigrant.
+     */
     @Test
     public void testgetImmigrant()
     {
@@ -21,14 +28,18 @@ public class ImmFormTest
         assertTrue(testImmForm.getImmigrant()==recieved);
         
     }
-
+    /**
+     * testing getRelative
+     */
     @Test
     public void testgetRelative()
     {
         ImmForm testImmForm=new ImmForm(null, null, null, null);
         assertTrue(testImmForm.getRelative()!=null);
     }
-
+    /**
+     * Testing getCreationDate
+     */
     @Test
     public void testgetCreationDate()
     {
@@ -37,6 +48,9 @@ public class ImmFormTest
     }
     //methods like these arent working properly right now, and so the test should
     //catch a failure.
+    /**
+     * Testing setCreationDate
+     */
     @Test
     public void testsetCreationDate()
     {
@@ -44,7 +58,9 @@ public class ImmFormTest
         ImmForm testImmForm=new ImmForm(testImm, null, null, null);
         assertTrue(testImmForm.setCreationDate("today"));
     }
-
+    /**
+     * Testing getFormStatus
+     */
     @Test
     public void testgetFormStatus()
     {
@@ -52,7 +68,9 @@ public class ImmFormTest
         ImmForm testImmForm=new ImmForm(testImm, null, null, null);
         assertTrue(testImmForm.getFormStatus()!=null);
     }
-
+    /**
+     * Testing updateFormStatus
+     */
     @Test
     public void testupdateFormStatus()
     {
