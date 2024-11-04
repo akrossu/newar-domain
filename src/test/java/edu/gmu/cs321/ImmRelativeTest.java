@@ -1,19 +1,21 @@
 package edu.gmu.cs321;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import org.junit.jupiter.api.Test;
 
-public class ImmRelativeTest {
-    private int id = 1242;
-    private String name = "John Doe";
-    private String dob = "02/24/1985";
-    private String status = "valid";
-    private int alienRegistrationNumber = 27647264;
-    private String relationship = "Spouse";
-    private String nationality = "Singaporean";
+class ImmRelativeTest {
+    private final int id = 1242;
+    private final String name = "John Doe";
+    private final String dob = "02/24/1985";
+    private final String status = "valid";
+    private final int alienRegistrationNumber = 27647264;
+    private final String relationship = "Spouse";
+    private final String nationality = "Singaporean";
 
     @Test
-    public void testImmRelativeName() {
+    void testImmRelativeName() {
         ImmRelative immigrant = new ImmRelative.Builder<>()
                 .setName(name)
                 .build();
@@ -22,7 +24,7 @@ public class ImmRelativeTest {
     }
 
     @Test
-    public void testImmRelativeDateOfBirth() {
+    void testImmRelativeDateOfBirth() {
         ImmRelative immigrant = new ImmRelative.Builder<>()
                 .setDateOfBirth(dob)
                 .build();
@@ -31,7 +33,7 @@ public class ImmRelativeTest {
     }
 
     @Test
-    public void testImmRelativeID() {
+    void testImmRelativeID() {
         ImmRelative immigrant = new ImmRelative.Builder<>()
                 .setID(id)
                 .build();
@@ -40,7 +42,7 @@ public class ImmRelativeTest {
     }
 
     @Test
-    public void testImmRelativeStatus() {
+    void testImmRelativeStatus() {
         ImmRelative immigrant = new ImmRelative.Builder<>()
                 .setCitizenshipStatus(status)
                 .build();
@@ -48,10 +50,8 @@ public class ImmRelativeTest {
         assertEquals(status, immigrant.getCitizenshipStatus());
     }
 
-    // TODO: Add various immigrant status tests
-
     @Test
-    public void testImmRelativeAlienRegistrationNumber() {
+    void testImmRelativeAlienRegistrationNumber() {
         ImmRelative immigrant = new ImmRelative.Builder<>()
                 .setAlienRegistrationNumber(alienRegistrationNumber)
                 .build();
@@ -59,7 +59,7 @@ public class ImmRelativeTest {
         assertEquals(alienRegistrationNumber, immigrant.getAlienRegistrationNumber());
     }
     @Test
-    public void testImmRelativeRelationship() {
+    void testImmRelativeRelationship() {
         ImmRelative immigrant = new ImmRelative.Builder<>()
                 .setRelationship(relationship)
                 .build();
@@ -69,7 +69,7 @@ public class ImmRelativeTest {
 
 
     @Test
-    public void testImmRelativeNationality() {
+    void testImmRelativeNationality() {
         ImmRelative immigrant = new ImmRelative.Builder<>()
                 .setNationality(nationality)
                 .build();
@@ -78,8 +78,8 @@ public class ImmRelativeTest {
     }
 
     @Test
-    public void testImmigrantInstantiation() {
-        new ImmRelative.Builder<>()
+    void testImmigrantInstantiation() {
+        ImmRelative rel = new ImmRelative.Builder<>()
                 .setID(id)
                 .setName(name)
                 .setDateOfBirth(dob)
@@ -89,6 +89,6 @@ public class ImmRelativeTest {
                 .setNationality(nationality)
                 .build();
 
-        assert(true); // simply verifies an object is able to be created in its entirety
+        assertNotNull(rel); // simply verifies an object is able to be created in its entirety
     }
 }
