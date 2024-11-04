@@ -58,6 +58,10 @@ public class LoginController {
         return true;
     }
 
+    public boolean onEmailButtonClick(ActionEvent event) {
+        return true;
+    }
+
     public Scene getScene() {
         return scene;
     }
