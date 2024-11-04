@@ -7,5 +7,13 @@
    <children>
       <Button layoutX="532.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" text="Logout" />
       <Label layoutX="14.0" layoutY="14.0" text="Data Entry Form" />
+      <TextArea layoutX="118.0" layoutY="62.0" prefHeight="5.0" prefWidth="170.0" />
+      <Label layoutX="14.0" layoutY="72.0" text="Immigrant Name" />
+      <TextArea layoutX="172.0" layoutY="112.0" prefHeight="37.0" prefWidth="116.0" />
+      <Label layoutX="14.0" layoutY="122.0" text="Date of Birth (mm/dd/yyyy)" />
+      <TextArea layoutX="118.0" layoutY="162.0" prefHeight="5.0" prefWidth="170.0" />
+      <Label layoutX="14.0" layoutY="172.0" text="Alien Reg. #" />
+      <Button layoutX="480.0" layoutY="361.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save and Submit" />
+      <Button layoutX="419.0" layoutY="361.0" mnemonicParsing="false" onAction="#onVerifyButtonClick" text="Verify" />
    </children>
 </AnchorPane>

@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openfx.LoginController">
    <children>
       <Button id="dataEntry" layoutX="112.0" layoutY="188.0" mnemonicParsing="false" onAction="#onDataEntryButtonClick" text="DataEntry" />
-      <Button id="reviewer" layoutX="268.0" layoutY="188.0" mnemonicParsing="false" text="Reviewer" />
-      <Button id="approver" layoutX="414.0" layoutY="188.0" mnemonicParsing="false" text="Approver" />
+      <Button id="reviewer" layoutX="268.0" layoutY="188.0" mnemonicParsing="false" onAction="#onReviewButtonClick" text="Reviewer" />
+      <Button id="approver" layoutX="414.0" layoutY="188.0" mnemonicParsing="false" onAction="#onReviewButtonClick" text="Approver" />
    </children>
 </AnchorPane>
