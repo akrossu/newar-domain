@@ -73,6 +73,7 @@ public class ApprovalScreen extends Application {
         final TextField immInfo = new TextField();
         immInfo.setEditable(false);
         immInfo.setPromptText("Immigrant Info goes here.");
+        immInfo.setText("Immigrant Info:");
         GridPane.setConstraints(immInfo, 0, 1);
         grid.getChildren().add(immInfo);
 
@@ -80,6 +81,7 @@ public class ApprovalScreen extends Application {
         final TextField errors = new TextField();
         errors.setEditable(false);
         errors.setPromptText("Errors go here.");
+        errors.setText("Errors:");
         GridPane.setConstraints(errors, 1, 1);
         grid.getChildren().add(errors);
 
@@ -91,14 +93,14 @@ public class ApprovalScreen extends Application {
 
 
         //denial button code
-        Button denial = new Button("Deny Email");
+        Button denial = new Button("Deny, Send to Review");
         HBox hbBtn1 = new HBox(10);
         hbBtn1.setAlignment(Pos.BOTTOM_LEFT);
         hbBtn1.getChildren().add(denial);
         grid.add(hbBtn1, 0, 5);
 
         //approval button code
-        Button accept = new Button("Accept Email");
+        Button accept = new Button("Accept, Send Email");
         HBox hbBtn2 = new HBox(10);
         hbBtn2.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn2.getChildren().add(accept);
