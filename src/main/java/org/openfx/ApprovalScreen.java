@@ -48,8 +48,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import edu.gmu.cs321.*;
 
-public class ApprovalTemp extends Application {
+
+public class ApprovalScreen extends Application {
 
     @Override
     public void start(Stage primaryStage) {
@@ -129,6 +131,31 @@ public class ApprovalTemp extends Application {
 
         
     }
+    
+    /**
+     * Display fields for approval.
+     */
+    public void displayFields(ImmForm CurFrom)
+    {
+      // TODO document why this method is empty
+    }
+
+    /**
+     * rejects form for Approval
+     */
+    public String rejectForm()
+    {
+        return "";
+    }
+
+    /**
+     * approves form for Approval
+     */
+    public Boolean approveForm()
+    {
+        return false;
+    }
+
 
     public static void main(String[] args) {
         launch(args);
