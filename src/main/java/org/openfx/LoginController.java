@@ -54,10 +54,6 @@ public class LoginController {
         return true;
     }
 
-    public boolean onEditButtonClick(ActionEvent event) {
-        return true;
-    }
-
     public boolean onSaveButtonClick(ActionEvent event) {
         return true;
     }
