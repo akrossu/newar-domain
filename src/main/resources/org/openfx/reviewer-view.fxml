@@ -10,5 +10,41 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.openfx.LoginController"
             prefHeight="400.0" prefWidth="600.0">
+    <children>
+    <!-- Petitioner Information Section -->
+      <VBox layoutX="14.0" layoutY="50.0" spacing="10">
+        <Label text="Petitioner Information" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+        <Label text="Name" />
+        <TextArea fx:id="petitionerNameField" prefHeight="30.0" prefWidth="200.0" editable="false" />
+        
+        <Label text="DOB (mm/dd/yyyy)" />
+        <TextArea fx:id="petitionerDobField" prefHeight="30.0" prefWidth="200.0" editable="false" />
+        
+        <Label text="Alien Reg. # / SSN" />
+        <TextArea fx:id="petitionerAlienRegField" prefHeight="30.0" prefWidth="200.0" editable="false" />
+     </VBox>
+     <!-- Relative Information Section -->
+     <VBox layoutX="250.0" layoutY="50.0" spacing="10">
+        <Label text="Relative Information" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+        <Label text="Name" />
+        <TextArea fx:id="relativeNameField" prefHeight="30.0" prefWidth="200.0" editable="false" />
+        
+        <Label text="DOB (mm/dd/yyyy)" />
+        <TextArea fx:id="relativeDobField" prefHeight="30.0" prefWidth="200.0" editable="false" />
+        
+        <Label text="Nationality" />
+        <TextArea fx:id="relativeNationalityField" prefHeight="30.0" prefWidth="200.0" editable="false" />
+        
+        <Label text="Alien Reg. #" />
+        <TextArea fx:id="relativeAlienRegField" prefHeight="30.0" prefWidth="200.0" editable="false" />
+     </VBox>
 
+  <!-- Buttons Section -->
+  <HBox spacing="10" layoutX="420.0" layoutY="10.0">
+    <Button mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save and Submit" />
+    <Button mnemonicParsing="false" onAction="#onVerifyButtonClick" text="Verify" />
+    <Button mnemonicParsing="false" onAction="#onEditButtonClick" text="Edit" />
+    <Button mnemonicParsing="false" onAction="#onLogoutButtonClick" text="Logout" />
+  </HBox>
+</children>
 </AnchorPane>
