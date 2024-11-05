@@ -31,6 +31,7 @@
  */
 package org.openfx;
 
+import edu.gmu.cs321.ImmForm;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -41,6 +42,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -48,7 +50,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import edu.gmu.cs321.*;
 
 
 public class ApprovalScreen extends Application {
@@ -68,10 +69,23 @@ public class ApprovalScreen extends Application {
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 40));
         grid.add(scenetitle, 0, 0, 2, 1);
 
+        //Display Immigrant Info.
+        final TextField immInfo = new TextField();
+        immInfo.setEditable(false);
+        immInfo.setPromptText("Immigrant Info goes here.");
+        GridPane.setConstraints(immInfo, 0, 1);
+        grid.getChildren().add(immInfo);
+
+        //Display Errors
+        final TextField errors = new TextField();
+        errors.setEditable(false);
+        errors.setPromptText("Errors go here.");
+        GridPane.setConstraints(errors, 1, 1);
+        grid.getChildren().add(errors);
 
         //very bottom
         final Separator bSep = new Separator();
-        GridPane.setConstraints(bSep, 0, 1);
+        GridPane.setConstraints(bSep, 0, 2);
         GridPane.setColumnSpan(bSep, 8);
         grid.getChildren().add(bSep);
 
@@ -110,6 +124,7 @@ public class ApprovalScreen extends Application {
             public void handle(ActionEvent e) {
                 actiontarget2.setText(null);
                 actiontarget.setFill(Color.FIREBRICK);
+                rejectForm();
                 actiontarget.setText("Form was Denied, Sent to Reviewer");
             }
         });
@@ -120,6 +135,7 @@ public class ApprovalScreen extends Application {
             public void handle(ActionEvent e) {
                 actiontarget.setText(null);
                 actiontarget2.setFill(Color.CORNFLOWERBLUE);
+                approveForm();
                 actiontarget2.setText("Form was Accepted, Email Pending");
             }
         });
