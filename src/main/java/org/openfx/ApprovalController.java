@@ -31,7 +31,7 @@
  */
 package org.openfx;
 
-import edu.gmu.cs321.ImmForm;
+import edu.gmu.cs321.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -52,7 +52,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
-public class ApprovalScreen extends Application {
+public class ApprovalController extends Application {
+
+    ApprovalScreen screen = new ApprovalScreen();
 
     @Override
     public void start(Stage primaryStage) {
@@ -126,7 +128,7 @@ public class ApprovalScreen extends Application {
             public void handle(ActionEvent e) {
                 actiontarget2.setText(null);
                 actiontarget.setFill(Color.FIREBRICK);
-                rejectForm();
+                screen.rejectForm();
                 actiontarget.setText("Form was Denied, Sent to Reviewer");
             }
         });
@@ -137,7 +139,7 @@ public class ApprovalScreen extends Application {
             public void handle(ActionEvent e) {
                 actiontarget.setText(null);
                 actiontarget2.setFill(Color.CORNFLOWERBLUE);
-                approveForm();
+                screen.approveForm();
                 actiontarget2.setText("Form was Accepted, Email Pending");
             }
         });
@@ -149,31 +151,6 @@ public class ApprovalScreen extends Application {
 
         
     }
-    
-    /**
-     * Display fields for approval.
-     */
-    public void displayFields(ImmForm CurFrom)
-    {
-      // TODO document why this method is empty
-    }
-
-    /**
-     * rejects form for Approval
-     */
-    public String rejectForm()
-    {
-        return "";
-    }
-
-    /**
-     * approves form for Approval
-     */
-    public Boolean approveForm()
-    {
-        return false;
-    }
-
 
     public static void main(String[] args) {
         launch(args);
