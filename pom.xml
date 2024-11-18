@@ -36,7 +36,15 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>  </dependencies>
+    </dependency>
+    <dependency>
+      <groupId>com.cs321</groupId>
+      <artifactId>Workflow</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/src/main/resources/workflow.jar</systemPath>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>
