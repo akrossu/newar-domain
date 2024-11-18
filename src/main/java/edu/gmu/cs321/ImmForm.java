@@ -1,18 +1,21 @@
 package edu.gmu.cs321;
 
-public class ImmForm
-{
+public class ImmForm {
     private Immigrant immigrant;
     private ImmRelative relative;
     private String creationDate;
     private String status;
     // Constructor
-    public ImmForm(Immigrant immigrant, ImmRelative relative, String creationDate, String status) {
+    public ImmForm(Immigrant immigrant) {
             this.immigrant = immigrant;
-            this.relative = relative;
-            this.creationDate = creationDate;
-            this.status = status;
     }
+
+    public ImmForm(ImmRelative relative) {
+        this.relative = relative;
+    }
+
+    public ImmForm() {}
+
     public boolean validateForm() {
         if (immigrant == null || relative == null) {
             return false; // Fail if critical fields are missing
