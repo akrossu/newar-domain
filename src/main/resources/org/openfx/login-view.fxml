@@ -7,6 +7,6 @@
    <children>
       <Button id="dataEntry" layoutX="112.0" layoutY="188.0" mnemonicParsing="false" onAction="#onDataEntryButtonClick" text="DataEntry" />
       <Button id="reviewer" layoutX="268.0" layoutY="188.0" mnemonicParsing="false" onAction="#onReviewButtonClick" text="Reviewer" />
-      <Button id="approver" layoutX="414.0" layoutY="188.0" mnemonicParsing="false" onAction="#onReviewButtonClick" text="Approver" />
+      <Button id="approver" layoutX="414.0" layoutY="188.0" mnemonicParsing="false" onAction="#onApproveButtonClick" text="Approver" />
    </children>
 </AnchorPane>
