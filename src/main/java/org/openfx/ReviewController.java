@@ -47,11 +47,11 @@ public class ReviewController extends LoginController {
         petitionerNameField.setEditable(isEditable);
         petitionerDobField.setEditable(isEditable);
         petitionerAlienRegField.setEditable(isEditable);
-        
+
         relativeNameField.setEditable(isEditable);
         relativeDobField.setEditable(isEditable);
         relativeNationalityField.setEditable(isEditable);
         relativeAlienRegField.setEditable(isEditable);
         return true;
     }
-}
+}    
