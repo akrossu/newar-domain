@@ -1,4 +1,5 @@
 package edu.gmu.cs321;
+import com.cs321.Workflow;
 /**
  * Review is responsible for Review step
  */
@@ -6,7 +7,13 @@ public class Review {
     /**
      * object variables
      */
-    private ImmForm ImmForm;
+    private ImmForm immForm;
+    private Workflow workflow;
+
+    public Review(ImmForm immform,Workflow workflow) {
+        this.immForm=immform;
+        this.workflow = workflow;
+    }
 
     /**
      * validate Fields
@@ -16,18 +23,28 @@ public class Review {
         return -1;
     }
     /**
-     * get workflowForm
-     * Currently returns a bool, but might return the form template later, tbd
+     * Add the current form to the workflow for review.
      */
-    public Boolean getWorkflowForm()
-    {
-        return false;
+    public void addToWorkflow(int FormID) {
+        int result = workflow.AddWFItem(FormID, "Review");
+        if (result == 0) {
+            System.out.println("Form " + FormID + " added to the workflow for review.");
+        } else {
+            System.out.println("Failed to add Form " + FormID + " to the workflow.");
+        }
     }
     /**
-     * update a worflow form
+     * Process the next form for review.
      */
-    public Boolean updateWorkflowForm()
-    {
-        return false;
+    public int processNextFormForReview() {
+        int formID = workflow.GetNextWFItem("Review");
+        if (formID == -3) {
+            System.out.println("No more forms to review.");
+        } else if (formID == -1) {
+            System.out.println("Invalid step specified.");
+        } else {
+            System.out.println("Processing form " + formID + " for review.");
+        }
+        return formID;
     }
 }
