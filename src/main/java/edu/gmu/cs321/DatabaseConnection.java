@@ -29,10 +29,13 @@ public class DatabaseConnection {
 
             rs.next();
             return new Object[]{
-                    rs.getInt(1), //ID
-                    rs.getInt(2), //AGE
-                    rs.getString(3), //FIRST
-                    rs.getString(4) //LAST
+                    rs.getInt(1), //id
+                    rs.getString(2), //status
+                    rs.getString(3), //name
+                    rs.getString(4), //date of birth
+                    rs.getInt(5), //registration number
+                    rs.getString(6), //relationship
+                    rs.getString(7) // nationality
             };
         } catch (SQLException e) {
             throw new RuntimeException(e);
