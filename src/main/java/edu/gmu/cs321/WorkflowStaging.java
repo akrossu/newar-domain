@@ -3,7 +3,7 @@ package edu.gmu.cs321;
 import com.cs321.Workflow;
 
 public class WorkflowStaging {
-    private static Workflow workflow;
+    private static Workflow workflow=new Workflow();
 
     public int addApproval(int id) {
         return WorkflowStaging.workflow.AddWFItem(id, "Approve");
