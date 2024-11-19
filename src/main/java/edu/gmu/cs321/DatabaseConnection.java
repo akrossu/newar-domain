@@ -1,5 +1,7 @@
 package edu.gmu.cs321;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,12 @@ public class DatabaseConnection {
     private String USER;
     private String PASS;
     
-    public DatabaseConnection() {}
+    public DatabaseConnection() {
+        Dotenv dotenv = Dotenv.configure().load();
+        this.setUser(dotenv.get("USER"));
+        this.setDbUrl(dotenv.get("DB_URL"));
+        this.setPassword(dotenv.get("PASS"));
+    }
 
     public void setDbUrl(String dbUrl) {
         this.DB_URL = dbUrl;

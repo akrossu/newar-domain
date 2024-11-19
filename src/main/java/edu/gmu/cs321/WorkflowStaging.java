@@ -27,11 +27,7 @@ public class WorkflowStaging {
     }
 
     public void createNewWFItem(ImmForm form) {
-        Dotenv dotenv = Dotenv.configure().load();
         DatabaseConnection dc = new DatabaseConnection();
-        dc.setUser(dotenv.get("USER"));
-        dc.setDbUrl(dotenv.get("DB_URL"));
-        dc.setPassword(dotenv.get("PASS"));
         dc.insertIntoDatabase(form);
         this.addApproval(form.getId());
     }
