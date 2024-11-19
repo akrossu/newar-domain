@@ -80,7 +80,48 @@ public class ReviewController extends LoginController {
         relativeAlienRegField.setText((String) formData[8]);
 
     }
-    
+    @Override
+    public boolean onVerifyButtonClick(ActionEvent event){
+        if (petitionerNameField.getText().isEmpty() ||
+        petitionerDobField.getText().isEmpty() ||
+        petitionerAlienRegField.getText().isEmpty() ||
+        relativeNameField.getText().isEmpty() ||
+        relativeDobField.getText().isEmpty() ||
+        relativeNationalityField.getText().isEmpty() ||
+        relativeAlienRegField.getText().isEmpty() ||
+        relativeStatusField.getText().isEmpty()) {
+        System.out.println("All fields must be filled out.");
+        return false;
+        }
+            // Validate date format for petitioner and relative DOB
+    if (!isValidDate(petitionerDobField.getText()) || !isValidDate(relativeDobField.getText())) {
+        System.out.println("Date of Birth must be in MM/DD/YYYY format.");
+        return false;
+    }
+
+    // Validate Alien Registration Numbers (example: numeric and 9 characters)
+    if (!petitionerAlienRegField.getText().matches("\\d{9}") ||
+        !relativeAlienRegField.getText().matches("\\d{9}")) {
+        System.out.println("Alien Registration Number must be exactly 9 digits.");
+        return false;
+    }
+
+    // Validate that the nationality is valid (example: not empty and alphanumeric)
+    if (!relativeNationalityField.getText().matches("[a-zA-Z\\s]+")) {
+        System.out.println("Nationality must contain only letters and spaces.");
+        return false;
+    }
+
+    // Additional validations can go here (e.g., relative status, etc.)
+    return true;
+}
+
+// Helper method to validate date format
+private boolean isValidDate(String date) {
+    return date.matches("(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/\\d{4}");
+}
+
+    // Makes text on UI editable
     public boolean onEditButtonClick(ActionEvent event) {
         isEditable = !isEditable;
         petitionerNameField.setEditable(isEditable);
@@ -93,13 +134,9 @@ public class ReviewController extends LoginController {
         relativeAlienRegField.setEditable(isEditable);
         return true;
     }
-    @Override
-    public boolean onSaveButtonClick(ActionEvent event) {
+    //Update database and upload the item to the next workflow
+    public boolean onSaveAndSubmitButtonClick(ActionEvent event) {
         updateDatabase();
-        return true;
-    }
-
-    public void onNextButtonClick(ActionEvent event) {
         String nextStep = "Approval"; // Example next step, could be dynamic.
 
         // Add the form to the workflow queue
@@ -109,7 +146,9 @@ public class ReviewController extends LoginController {
         } else {
             System.out.println("Error adding form to workflow: " + result);
         }
+        return true;
     }
+    //Get and display next item on workflow
     public void onGetNextButtonClick(ActionEvent event) {
         String nextStep = "Review"; // Step to fetch from workflow (can be dynamic).
         int nextFormID = workflow.getNextReviewerWFItem();
@@ -122,7 +161,8 @@ public class ReviewController extends LoginController {
             populateFields(nextFormID);  // Populate the fields with the form data retrieved.
         }
     }
-    public void updateDatabase() {
+    //Helper function to update data on database
+    private void updateDatabase() {
     // Define the SQL UPDATE query with placeholders for the data to be updated
     String updateQuery = "UPDATE People SET " +
             "petitioner_name = ?, " +

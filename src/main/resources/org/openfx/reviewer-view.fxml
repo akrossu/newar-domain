@@ -44,9 +44,10 @@
 
  <!-- Buttons Section -->
  <HBox spacing="10" layoutX="420.0" layoutY="10.0">
-  <Button mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save and Submit" />
+  <Button mnemonicParsing="false" onAction="#onSaveAndSubmitButtonClick" text="Save and Submit" />
   <Button mnemonicParsing="false" onAction="#onVerifyButtonClick" text="Verify" />
   <Button mnemonicParsing="false" onAction="#onEditButtonClick" text="Edit" />
+  <Button mnemonicParsing="false" onAction="#onGetNextButtonClick" text="Next" />
   <Button mnemonicParsing="false" onAction="#onLogoutButtonClick" text="Logout" />
 </HBox>
 </children>
