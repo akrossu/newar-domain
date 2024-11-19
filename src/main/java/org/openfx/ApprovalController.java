@@ -1,11 +1,13 @@
 
 package org.openfx;
 
+import edu.gmu.cs321.ApprovalScreen;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
+
 public class ApprovalController extends LoginController {
     @FXML
     private TextArea appPetitionerInfo;
@@ -17,7 +19,7 @@ public class ApprovalController extends LoginController {
 
    // @FXML
     // Text
-
+    private ApprovalScreen approvalScreen = new ApprovalScreen();
 
    /**
     * Initialize should populate fields
@@ -28,7 +30,8 @@ public class ApprovalController extends LoginController {
     
     private void populateFields()
     {
-        appPetitionerInfo.setText("Petitioner:\nDOB\nEMAIL");
+
+        appPetitionerInfo.setText(approvalScreen.displayFields(approvalScreen.getApproval().getImmForm()));
         errorInfo.setText("Error Info Goes Here");
         approvalResult.setText("Approval message goes here");
     }
@@ -39,8 +42,21 @@ public class ApprovalController extends LoginController {
      */
     //@FXML
     public boolean onAcceptClick(ActionEvent event) {
+        String outputText = "";
+        boolean isApproved=false;
         approvalResult.setTextFill(Color.BLUE);
-        approvalResult.setText("Form was Accepted, Redunant Button!");
+
+        if (approvalScreen.getApproval().getImmForm()==null)
+            outputText = "No Form was approved!";
+        else
+            outputText= "Form was Accepted!";
+        
+        if (approvalScreen.approveForm()==true)
+            outputText= outputText.concat(" Displaying New Form!");
+        else
+            outputText = outputText.concat(" No new forms!");
+        approvalResult.setText(outputText);
+        appPetitionerInfo.setText(approvalScreen.displayFields(approvalScreen.getApproval().getImmForm()));
         return true;
     }
     /**
@@ -49,7 +65,8 @@ public class ApprovalController extends LoginController {
     @FXML
     public boolean onRejectClick(ActionEvent event) {
         approvalResult.setTextFill(Color.RED);
-        approvalResult.setText("Form was Denied, Sent to Reviewer");
+        approvalResult.setText(approvalScreen.rejectForm());
+        appPetitionerInfo.setText(approvalScreen.displayFields(approvalScreen.getApproval().getImmForm()));
         return true;
     }
     
