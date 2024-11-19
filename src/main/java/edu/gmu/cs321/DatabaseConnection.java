@@ -33,13 +33,15 @@ public class DatabaseConnection {
 
             rs.next();
             return new Object[]{
-                    rs.getInt(1), //id
-                    rs.getString(2), //status
-                    rs.getString(3), //name
-                    rs.getString(4), //date of birth
-                    rs.getInt(5), //registration number
-                    rs.getString(6), //relationship
-                    rs.getString(7) // nationality
+                rs.getInt(1), // id
+                rs.getString(2), // petitioner_name
+                rs.getDate(3), // petitioner_dob
+                rs.getString(4), // petitioner_ssn
+                rs.getString(5), // relative_status
+                rs.getString(6), // relative_name
+                rs.getDate(7), // relative_dob
+                rs.getString(8), // relative_nationality
+                rs.getString(9) // relative_alien_reg
             };
         } catch (SQLException e) {
             throw new RuntimeException(e);

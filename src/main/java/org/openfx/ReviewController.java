@@ -27,35 +27,28 @@ public class ReviewController extends LoginController {
     
     @FXML
     private TextArea relativeAlienRegField;
+
+    @FXML
+    private TextArea relativeStatus;
     
     private boolean isEditable = false; 
-    public WorkflowStaging workflow;
+    public WorkflowStaging workflow= new WorkflowStaging();
     public DatabaseConnection dbConnection;
-    private int formID;
-
+    private int formID=1;
+    @FXML
     private void initialize() {
         dbConnection = new DatabaseConnection(); 
         dbConnection.setDbUrl("jdbc:mysql://localhost:3306/cs321");
-        dbConnection.setUser("username");
-        dbConnection.setPassword("password");
-        formID=workflow.getNextReviewerWFItem();
+        dbConnection.setUser("root");
+        dbConnection.setPassword("root");
         populateFields(formID);
     }
 
-    private void populateFields(int formID) {
-        String query = "FormID = " + formID;
+    private void populateFields(int id) {
+        String query = "SELECT * FROM People WHERE id = " + formID;
         Object[] formData = dbConnection.queryDatabase(query);
-        if (formData != null && formData.length > 0) {
-            // Populate the fields using the data retrieved from the database.
-            petitionerNameField.setText((String) formData[2]);  // Petitioner Name
-            petitionerDobField.setText((String) formData[3]);   // Petitioner DOB
-            petitionerAlienRegField.setText(String.valueOf(formData[4])); // Petitioner Alien Reg # or SSN
+        petitionerNameField.setText((String) formData[1]); // Petitioner Name
 
-            relativeNameField.setText((String) formData[5]); // Relative Name
-            relativeDobField.setText((String) formData[6]);  // Relative DOB
-            relativeNationalityField.setText((String) formData[7]); // Relative Nationality
-            relativeAlienRegField.setText(String.valueOf(formData[4])); // Relative Alien Reg #
-        }
     }
 
     public boolean onEditButtonClick(ActionEvent event) {
@@ -81,16 +74,16 @@ public class ReviewController extends LoginController {
             System.out.println("Error adding form to workflow: " + result);
         }
     }
-    public void onGetNextButtonClick(ActionEvent event) {
-        String nextStep = "Review"; // Step to fetch from workflow (can be dynamic).
-        int nextFormID = workflow.getNextReviewerWFItem();
-        if (nextFormID == -3) {
-            System.out.println("No more items in the queue.");
-        } else if (nextFormID == -1) {
-            System.out.println("Invalid step.");
-        } else {
-            System.out.println("Next form ID for " + nextStep + ": " + nextFormID);
-            populateFields(nextFormID);  // Populate the fields with the form data retrieved.
-        }
-    }
+    // public void onGetNextButtonClick(ActionEvent event) {
+    //     String nextStep = "Review"; // Step to fetch from workflow (can be dynamic).
+    //     int nextFormID = workflow.getNextReviewerWFItem();
+    //     if (nextFormID == -3) {
+    //         System.out.println("No more items in the queue.");
+    //     } else if (nextFormID == -1) {
+    //         System.out.println("Invalid step.");
+    //     } else {
+    //         System.out.println("Next form ID for " + nextStep + ": " + nextFormID);
+    //         populateFields(nextFormID);  // Populate the fields with the form data retrieved.
+    //     }
+    // }
 }    
