@@ -1,17 +1,28 @@
 package edu.gmu.cs321;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class DatabaseConnection {
     ImmForm immForm;
     private String DB_URL;
     private String USER;
     private String PASS;
     
-    public DatabaseConnection() {}
+    public DatabaseConnection() {
+        Dotenv dotenv = Dotenv.configure().load();
+        this.setUser(dotenv.get("USER"));
+        this.setDbUrl(dotenv.get("DB_URL"));
+        this.setPassword(dotenv.get("PASS"));
+    }
 
     public void setDbUrl(String dbUrl) {
         this.DB_URL = dbUrl;
@@ -70,6 +81,27 @@ public class DatabaseConnection {
             throw new RuntimeException(e);
         } finally {
             //if (pstmt != null) pstmt.close();
+        }
+    }
+
+    public List<Object[]> getIDs() {
+        Statement stmt = null;
+        try (Connection connection = DriverManager.getConnection(this.DB_URL, this.USER, this.PASS)) {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT id, relative_status FROM People");
+
+            List<Object[]> list = new ArrayList<>();
+            while (rs.next()) {
+                Object[] row = new Object[2];
+                row[0] = rs.getInt(1); //ID
+                row[1] = rs.getString(2); //Status
+                list.add(row);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            //if (stmt != null) stmt.close();
         }
     }
 }
