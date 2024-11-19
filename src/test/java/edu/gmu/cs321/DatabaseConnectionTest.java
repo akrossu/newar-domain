@@ -3,15 +3,9 @@ package edu.gmu.cs321;
 import org.junit.jupiter.api.Test;
 import io.github.cdimascio.dotenv.Dotenv;
 
-import java.sql.Date;
-import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.ZonedDateTime;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DatabaseConnectionTest {
+class DatabaseConnectionTest {
     @Test
     void setDatabaseConnection() {
         DatabaseConnection dc = new DatabaseConnection();
@@ -19,7 +13,7 @@ public class DatabaseConnectionTest {
     }
 
     @Test
-    void getDatabaseContentFromId() throws SQLException {
+    void getDatabaseContentFromId() {
         int id = 1;
         Dotenv dotenv = Dotenv.configure().load();
         DatabaseConnection dc = new DatabaseConnection();

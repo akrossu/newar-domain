@@ -3,27 +3,25 @@ package edu.gmu.cs321;
 import com.cs321.Workflow;
 import io.github.cdimascio.dotenv.Dotenv;
 
-import java.sql.SQLException;
-
 public class WorkflowStaging {
     private static final Workflow workflow = new Workflow();
-    private final String approve = "Approve";
-    private final String review = "Review";
+    private static final String APPROVE = "Approve";
+    private static final String REVIEW = "Review";
 
     public int addApproval(int id) {
-        return WorkflowStaging.workflow.AddWFItem(id, approve);
+        return WorkflowStaging.workflow.AddWFItem(id, APPROVE);
     }
 
     public int addReviewer(int id) {
-        return WorkflowStaging.workflow.AddWFItem(id, review);
+        return WorkflowStaging.workflow.AddWFItem(id, REVIEW);
     }
 
     public int getNextApprovalWFItem() {
-        return WorkflowStaging.workflow.GetNextWFItem(approve);
+        return WorkflowStaging.workflow.GetNextWFItem(APPROVE);
     }
 
     public int getNextReviewerWFItem() {
-        return WorkflowStaging.workflow.GetNextWFItem(review);
+        return WorkflowStaging.workflow.GetNextWFItem(REVIEW);
     }
 
     public void createNewWFItem(ImmForm form) {

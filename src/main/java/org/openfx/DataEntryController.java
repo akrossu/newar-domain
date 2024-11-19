@@ -13,8 +13,6 @@ import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.sql.SQLException;
-import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 public class DataEntryController extends LoginController {
