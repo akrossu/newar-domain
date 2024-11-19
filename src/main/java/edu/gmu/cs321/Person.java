@@ -1,8 +1,11 @@
 package edu.gmu.cs321;
 
+
+import java.sql.Date;
+
 public class Person {
     private String name;
-    private String dateOfBirth;
+    private Date dateOfBirth;
 
     public Person(Builder builder) {
         this.name = builder.name;
@@ -10,18 +13,18 @@ public class Person {
     }
 
     public String getName() { return name; }
-    public String getDateOfBirth() { return dateOfBirth; }
+    public Date getDateOfBirth() { return dateOfBirth; }
 
     public static class Builder<T extends Builder> {
         protected String name;
-        protected String dateOfBirth;
+        protected Date dateOfBirth;
 
         public T setName(String name) {
             this.name = name;
             return self();
         }
 
-        public T setDateOfBirth(String dateOfBirth) {
+        public T setDateOfBirth(Date dateOfBirth) {
             this.dateOfBirth = dateOfBirth;
             return self();
         }

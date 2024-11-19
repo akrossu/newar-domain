@@ -1,6 +1,7 @@
 package org.openfx;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,10 +14,9 @@ import javafx.stage.Stage;
 public class LoginController {
     private Stage stage;
     private Scene scene;
-    private Parent root;
 
     private void createScene(ActionEvent event, String file) throws IOException {
-        root = FXMLLoader.load(getClass().getResource(file + "-view.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(file + "-view.fxml")));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

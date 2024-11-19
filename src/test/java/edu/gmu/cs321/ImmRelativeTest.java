@@ -5,12 +5,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 class ImmRelativeTest {
-    private final int id = 1242;
+    private final String id = "1242";
     private final String name = "John Doe";
-    private final String dob = "02/24/1985";
+    private final Date dob = Date.valueOf(LocalDate.now());
     private final String status = "valid";
-    private final int alienRegistrationNumber = 27647264;
+    private final String alienRegistrationNumber = "27647264";
     private final String relationship = "Spouse";
     private final String nationality = "Singaporean";
 
@@ -30,15 +33,6 @@ class ImmRelativeTest {
                 .build();
 
         assertEquals(dob, immigrant.getDateOfBirth());
-    }
-
-    @Test
-    void testImmRelativeID() {
-        ImmRelative immigrant = new ImmRelative.Builder<>()
-                .setID(id)
-                .build();
-
-        assertEquals(id, immigrant.getID());
     }
 
     @Test
@@ -80,7 +74,6 @@ class ImmRelativeTest {
     @Test
     void testImmigrantInstantiation() {
         ImmRelative rel = new ImmRelative.Builder<>()
-                .setID(id)
                 .setName(name)
                 .setDateOfBirth(dob)
                 .setCitizenshipStatus(status)

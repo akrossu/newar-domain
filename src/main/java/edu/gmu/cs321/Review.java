@@ -1,4 +1,5 @@
 package edu.gmu.cs321;
+import com.cs321.Workflow;
 /**
  * Review is responsible for Review step
  */
@@ -6,28 +7,16 @@ public class Review {
     /**
      * object variables
      */
-    private ImmForm ImmForm;
+    private ImmForm immForm;
+    private Workflow workflow;
+
+    public Review(ImmForm immform,Workflow workflow) {
+        this.immForm=immform;
+        this.workflow = workflow;
+    }
 
     /**
      * validate Fields
      */
-    public int validateFields()
-    {
-        return -1;
-    }
-    /**
-     * get workflowForm
-     * Currently returns a bool, but might return the form template later, tbd
-     */
-    public Boolean getWorkflowForm()
-    {
-        return false;
-    }
-    /**
-     * update a worflow form
-     */
-    public Boolean updateWorkflowForm()
-    {
-        return false;
-    }
+
 }
