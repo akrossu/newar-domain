@@ -1,10 +1,6 @@
 package edu.gmu.cs321;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseConnection {
     ImmForm immForm;
@@ -27,8 +23,9 @@ public class DatabaseConnection {
     }
 
     public Object[] queryDatabase(String query) {
+        Statement stmt = null;
         try (Connection connection = DriverManager.getConnection(this.DB_URL, this.USER, this.PASS)) {
-            Statement stmt = connection.createStatement();
+            stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
             rs.next();
@@ -45,6 +42,31 @@ public class DatabaseConnection {
             };
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } finally {
+            //if (stmt != null) stmt.close();
+        }
+    }
+
+    public void insertIntoDatabase(ImmForm form) throws RuntimeException {
+        PreparedStatement pstmt = null;
+        String sql = "INSERT INTO People (id, petitioner_name, petitioner_dob, petitioner_ssn, relative_status, relative_name, relative_dob, relative_nationality, relative_alien_reg) VALUES (?,?,?,?,?,?,?,?,?)";
+        try (Connection connection = DriverManager.getConnection(this.DB_URL, this.USER, this.PASS)) {
+            pstmt = connection.prepareStatement(sql);
+            pstmt.setInt(1, form.getId());
+            pstmt.setString(2, form.getImmigrant().getName());
+            pstmt.setDate(3, form.getImmigrant().getDateOfBirth());
+            pstmt.setString(4, form.getImmigrant().getSSN());
+            pstmt.setString(5, form.getRelative().getCitizenshipStatus());
+            pstmt.setString(6, form.getRelative().getName());
+            pstmt.setDate(7, form.getRelative().getDateOfBirth());
+            pstmt.setString(8, form.getRelative().getNationality());
+            pstmt.setString(9, form.getRelative().getRelationship());
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            //if (pstmt != null) pstmt.close();
         }
     }
 }

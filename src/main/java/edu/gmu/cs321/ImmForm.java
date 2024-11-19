@@ -6,12 +6,12 @@ public class ImmForm {
     private int id;
     private String creationDate;
     private String status;
-    // Constructor
+
     public ImmForm(int id,Immigrant immigrant,ImmRelative relative, String creationDate,String status) {
-            this.relative=relative;
-            this.id=id;
-            this.creationDate=creationDate;
-            this.status=status;
+            this.relative = relative;
+            this.id = id;
+            this.creationDate = creationDate;
+            this.status = status;
             this.immigrant = immigrant;
     }
 
@@ -20,6 +20,10 @@ public class ImmForm {
             return false; // Fail if critical fields are missing
         }
         return true;
+    }
+
+    public int getId() {
+        return this.id;
     }
     public Immigrant getImmigrant() {
         return immigrant;
