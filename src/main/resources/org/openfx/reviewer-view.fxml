@@ -27,7 +27,7 @@
      <VBox layoutX="250.0" layoutY="50.0" spacing="10">
         <Label text="Relative Information" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
         <Label text="Status" />
-        <TextArea fx:id="relativeStatus" prefHeight="30.0" prefWidth="200.0" editable="false" />
+        <TextArea fx:id="relativeStatusField" prefHeight="30.0" prefWidth="200.0" editable="false" />
 
         <Label text="Name" />
         <TextArea fx:id="relativeNameField" prefHeight="30.0" prefWidth="200.0" editable="false" />

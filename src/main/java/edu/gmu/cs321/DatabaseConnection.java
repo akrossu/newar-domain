@@ -11,7 +11,7 @@ public class DatabaseConnection {
     private String DB_URL;
     private String USER;
     private String PASS;
-
+    
     public DatabaseConnection() {}
 
     public void setDbUrl(String dbUrl) {
