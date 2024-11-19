@@ -1,6 +1,7 @@
 package edu.gmu.cs321;
 
 import com.cs321.Workflow;
+
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class WorkflowStaging {
@@ -27,9 +28,9 @@ public class WorkflowStaging {
     public void createNewWFItem(ImmForm form) {
         Dotenv dotenv = Dotenv.configure().load();
         DatabaseConnection dc = new DatabaseConnection();
-        dc.setUser(dotenv.get("USER"));
-        dc.setDbUrl(dotenv.get("DB_URL"));
-        dc.setPassword(dotenv.get("PASS"));
+        dc.setDbUrl("jdbc:mysql://localhost:3306/cs321");
+        dc.setUser("root");
+        dc.setPassword("root");
         dc.insertIntoDatabase(form);
         this.addApproval(form.getId());
     }

@@ -10,7 +10,6 @@ import edu.gmu.cs321.WorkflowStaging;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
-
 public class ReviewController extends LoginController {
 
     @FXML
@@ -40,7 +39,7 @@ public class ReviewController extends LoginController {
     private boolean isEditable = false;
     public WorkflowStaging workflow = new WorkflowStaging();
     public DatabaseConnection dbConnection;
-    private int formID=1;
+    private int formID=5;
     //private int formID = workflow.getNextReviewerWFItem();
 
     @FXML
@@ -113,7 +112,7 @@ public class ReviewController extends LoginController {
     // }
 
     // // Additional validations can go here (e.g., relative status, etc.)
-    // return true;
+    return true;
 }
 
 // Helper method to validate date format
