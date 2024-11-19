@@ -8,7 +8,28 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.openfx.LoginController"
+            fx:controller="org.openfx.ApprovalController"
             prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Label text="Approval Form" layoutX="200" layoutY="0"/>
+        <!-- Result Message-->
+        <Label fx:id="approvalResult" layoutX="14.0" layoutY="380" text="confirmation message goes here" />
+
+        <!-- Petitioner Info-->
+        <HBox spacing="50" layoutX="20" layoutY="50">
+        <TextArea fx:id="appPetitionerInfo" editable="false" prefWidth="230"/>
+
+        <!-- Errors-->
+        <TextArea fx:id="errorInfo" editable="false" prefWidth="230"/>
+        </HBox>
+        <!-- buttons-->
+        <Button  layoutX="500" layoutY="10" mnemonicParsing="false" onAction="#onLogoutButtonClick" text="Logout" />
+
+        <HBox spacing="50" layoutX="150" layoutY="350">
+        <Button mnemonicParsing="false" onAction="#onRejectClick" text="Reject" />
+        <Button mnemonicParsing="false" onAction="#onAcceptClick" text="Accept" />
+        <Button mnemonicParsing="false" onAction="#onEmailButtonClick" text="Email" />
+        </HBox>
+   </children>
 
 </AnchorPane>
