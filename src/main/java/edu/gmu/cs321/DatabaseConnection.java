@@ -1,6 +1,8 @@
 package edu.gmu.cs321;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseConnection {
     ImmForm immForm;
@@ -67,6 +69,27 @@ public class DatabaseConnection {
             throw new RuntimeException(e);
         } finally {
             //if (pstmt != null) pstmt.close();
+        }
+    }
+
+    public List<Object[]> getIDs() {
+        Statement stmt = null;
+        try (Connection connection = DriverManager.getConnection(this.DB_URL, this.USER, this.PASS)) {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT id, relative_status FROM People");
+
+            List<Object[]> list = new ArrayList<>();
+            while (rs.next()) {
+                Object[] row = new Object[2];
+                row[0] = rs.getInt(1); //ID
+                row[1] = rs.getString(2); //Status
+                list.add(row);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            //if (stmt != null) stmt.close();
         }
     }
 }
