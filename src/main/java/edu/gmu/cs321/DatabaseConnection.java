@@ -1,6 +1,10 @@
 package edu.gmu.cs321;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DatabaseConnection {
     ImmForm immForm;
@@ -8,7 +12,7 @@ public class DatabaseConnection {
     private String USER;
     private String PASS;
 
-    DatabaseConnection() {}
+    public DatabaseConnection() {}
 
     public void setDbUrl(String dbUrl) {
         this.DB_URL = dbUrl;

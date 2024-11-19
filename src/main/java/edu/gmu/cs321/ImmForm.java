@@ -3,10 +3,15 @@ package edu.gmu.cs321;
 public class ImmForm {
     private Immigrant immigrant;
     private ImmRelative relative;
+    private int id;
     private String creationDate;
     private String status;
     // Constructor
-    public ImmForm(Immigrant immigrant) {
+    public ImmForm(int id,Immigrant immigrant, String creationDate,String status) {
+            this.relative=relative;
+            this.id=id;
+            this.creationDate=creationDate;
+            this.status=status;
             this.immigrant = immigrant;
     }
 

@@ -1,11 +1,18 @@
 package edu.gmu.cs321;
 public class Main {
     public static void main(String[] args) {
-        WorkflowStaging workflowStaging = new WorkflowStaging();
-        DatabaseConnection dbConnection = new DatabaseConnection();
+         // Database connection parameters
+         String dbUrl = "jdbc:mysql://localhost:3306/cs321";
+         String user = "root";
+         String pass = "password";
+  // Create DatabaseConnection and WorkflowStaging objects
+  DatabaseConnection dbConnection = new DatabaseConnection();
+  WorkflowStaging workflowStaging = new WorkflowStaging();
+  dbConnection.setDbUrl("jdbc:mysql://localhost:3306/path");
+  dbConnection.setUser("root");
+  dbConnection.setPassword("root");
 
 
-        
         // Adding forms for review and approval
         System.out.println("Adding Form 1 to Review queue: " + workflowStaging.addReviewer(1)); // Expected: 0
         System.out.println("Adding Form 2 to Approval queue: " + workflowStaging.addApproval(2)); // Expected: 0

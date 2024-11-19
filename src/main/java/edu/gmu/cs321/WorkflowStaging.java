@@ -4,7 +4,7 @@ import com.cs321.Workflow;
 
 public class WorkflowStaging {
     private Workflow workflow;
-    WorkflowStaging() {
+    public WorkflowStaging() {
         this.workflow = new Workflow();
     }
 
