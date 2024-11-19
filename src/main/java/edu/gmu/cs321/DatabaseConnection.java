@@ -1,7 +1,10 @@
 package edu.gmu.cs321;
-
-import java.sql.*;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 public class DatabaseConnection {
     ImmForm immForm;
     private String DB_URL;
