@@ -31,6 +31,7 @@
  */
 
 package org.openfx;
+import edu.gmu.cs321.WorkflowStaging;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -49,6 +50,7 @@ public class Login extends Application {
     }
 
     public static void main(String[] args) {
+        new WorkflowStaging().populateWFItems(); //Populates the workflow items from the table
         launch();
     }
 }
