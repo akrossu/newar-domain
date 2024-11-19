@@ -3,6 +3,12 @@ package edu.gmu.cs321;
 import org.junit.jupiter.api.Test;
 import io.github.cdimascio.dotenv.Dotenv;
 
+import java.sql.Date;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DatabaseConnectionTest {
@@ -13,15 +19,15 @@ public class DatabaseConnectionTest {
     }
 
     @Test
-    void getDatabaseContentFromId() {
-        int id = 100;
+    void getDatabaseContentFromId() throws SQLException {
+        int id = 1;
         Dotenv dotenv = Dotenv.configure().load();
         DatabaseConnection dc = new DatabaseConnection();
         dc.setUser(dotenv.get("USER"));
         dc.setDbUrl(dotenv.get("DB_URL"));
         dc.setPassword(dotenv.get("PASS"));
         Object[] obj = dc.queryDatabase("SELECT * FROM People WHERE id=" + id);
-        assertEquals(100, obj[0]);
+        assertEquals(1, obj[0]);
     }
 
     @Test
