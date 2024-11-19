@@ -82,38 +82,38 @@ public class ReviewController extends LoginController {
     }
     @Override
     public boolean onVerifyButtonClick(ActionEvent event){
-        if (petitionerNameField.getText().isEmpty() ||
-        petitionerDobField.getText().isEmpty() ||
-        petitionerAlienRegField.getText().isEmpty() ||
-        relativeNameField.getText().isEmpty() ||
-        relativeDobField.getText().isEmpty() ||
-        relativeNationalityField.getText().isEmpty() ||
-        relativeAlienRegField.getText().isEmpty() ||
-        relativeStatusField.getText().isEmpty()) {
-        System.out.println("All fields must be filled out.");
-        return false;
-        }
-            // Validate date format for petitioner and relative DOB
-    if (!isValidDate(petitionerDobField.getText()) || !isValidDate(relativeDobField.getText())) {
-        System.out.println("Date of Birth must be in MM/DD/YYYY format.");
-        return false;
-    }
+    //     if (petitionerNameField.getText().isEmpty() ||
+    //     petitionerDobField.getText().isEmpty() ||
+    //     petitionerAlienRegField.getText().isEmpty() ||
+    //     relativeNameField.getText().isEmpty() ||
+    //     relativeDobField.getText().isEmpty() ||
+    //     relativeNationalityField.getText().isEmpty() ||
+    //     relativeAlienRegField.getText().isEmpty() ||
+    //     relativeStatusField.getText().isEmpty()) {
+    //     System.out.println("All fields must be filled out.");
+    //     return false;
+    //     }
+    //         // Validate date format for petitioner and relative DOB
+    // if (!isValidDate(petitionerDobField.getText()) || !isValidDate(relativeDobField.getText())) {
+    //     System.out.println("Date of Birth must be in MM/DD/YYYY format.");
+    //     return false;
+    // }
 
-    // Validate Alien Registration Numbers (example: numeric and 9 characters)
-    if (!petitionerAlienRegField.getText().matches("\\d{9}") ||
-        !relativeAlienRegField.getText().matches("\\d{9}")) {
-        System.out.println("Alien Registration Number must be exactly 9 digits.");
-        return false;
-    }
+    // // Validate Alien Registration Numbers (example: numeric and 9 characters)
+    // if (!petitionerAlienRegField.getText().matches("\\d{9}") ||
+    //     !relativeAlienRegField.getText().matches("\\d{9}")) {
+    //     System.out.println("Alien Registration Number must be exactly 9 digits.");
+    //     return false;
+    // }
 
-    // Validate that the nationality is valid (example: not empty and alphanumeric)
-    if (!relativeNationalityField.getText().matches("[a-zA-Z\\s]+")) {
-        System.out.println("Nationality must contain only letters and spaces.");
-        return false;
-    }
+    // // Validate that the nationality is valid (example: not empty and alphanumeric)
+    // if (!relativeNationalityField.getText().matches("[a-zA-Z\\s]+")) {
+    //     System.out.println("Nationality must contain only letters and spaces.");
+    //     return false;
+    // }
 
-    // Additional validations can go here (e.g., relative status, etc.)
-    return true;
+    // // Additional validations can go here (e.g., relative status, etc.)
+    // return true;
 }
 
 // Helper method to validate date format
