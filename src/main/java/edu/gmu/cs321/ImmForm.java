@@ -7,19 +7,13 @@ public class ImmForm {
     private String creationDate;
     private String status;
     // Constructor
-    public ImmForm(int id,Immigrant immigrant, String creationDate,String status) {
+    public ImmForm(int id,Immigrant immigrant,ImmRelative relative, String creationDate,String status) {
             this.relative=relative;
             this.id=id;
             this.creationDate=creationDate;
             this.status=status;
             this.immigrant = immigrant;
     }
-
-    public ImmForm(ImmRelative relative) {
-        this.relative = relative;
-    }
-
-    public ImmForm() {}
 
     public boolean validateForm() {
         if (immigrant == null || relative == null) {

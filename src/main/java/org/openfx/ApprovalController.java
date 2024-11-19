@@ -19,14 +19,16 @@ public class ApprovalController extends LoginController {
     // Text
 
 
-   // private boolean isEditiable=false;
+   /**
+    * Initialize should populate fields
+    */
     public void initialize() {
         populateFields();
     }
     
     private void populateFields()
     {
-        appPetitionerInfo.setText("Petitioner Info Goes Here");
+        appPetitionerInfo.setText("Petitioner:\nDOB\nEMAIL");
         errorInfo.setText("Error Info Goes Here");
         approvalResult.setText("Approval message goes here");
     }

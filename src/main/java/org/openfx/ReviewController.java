@@ -34,13 +34,12 @@ public class ReviewController extends LoginController {
     private int formID;
 
     private void initialize() {
-        workflow= new WorkflowStaging();
         dbConnection = new DatabaseConnection(); 
         dbConnection.setDbUrl("jdbc:mysql://localhost:3306/cs321");
         dbConnection.setUser("username");
         dbConnection.setPassword("password");
         formID=workflow.getNextReviewerWFItem();
-        populateFields(formid);
+        populateFields(formID);
     }
 
     private void populateFields(int formID) {
