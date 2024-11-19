@@ -2,18 +2,127 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openfx.LoginController">
+<AnchorPane prefHeight="444.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openfx.DataEntryController">
    <children>
-      <Button layoutX="532.0" layoutY="14.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" text="Logout" />
-      <Label layoutX="14.0" layoutY="14.0" text="Data Entry Form" />
-      <TextArea layoutX="118.0" layoutY="62.0" prefHeight="5.0" prefWidth="170.0" />
-      <Label layoutX="14.0" layoutY="72.0" text="Immigrant Name" />
-      <TextArea layoutX="172.0" layoutY="112.0" prefHeight="37.0" prefWidth="116.0" />
-      <Label layoutX="14.0" layoutY="122.0" text="Date of Birth (mm/dd/yyyy)" />
-      <TextArea layoutX="118.0" layoutY="162.0" prefHeight="5.0" prefWidth="170.0" />
-      <Label layoutX="14.0" layoutY="172.0" text="Alien Reg. #" />
-      <Button layoutX="480.0" layoutY="361.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save and Submit" />
-      <Button layoutX="419.0" layoutY="361.0" mnemonicParsing="false" onAction="#onVerifyButtonClick" text="Verify" />
+      <Button layoutX="598.0" layoutY="10.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" text="Logout">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Button>
+      <Label layoutX="14.0" layoutY="14.0" text="Data Entry Form">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Label>
+      <TextArea fx:id="petitionerNameField" layoutX="102.0" layoutY="157.0" prefHeight="35.0" prefWidth="186.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></TextArea>
+      <Label layoutX="14.0" layoutY="167.0" text="Name">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Label>
+      <Label layoutX="14.0" layoutY="217.0" text="Date of Birth">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Label>
+      <TextArea fx:id="petitionerIdField" layoutX="101.0" layoutY="103.0" prefHeight="37.0" prefWidth="186.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></TextArea>
+      <Label layoutX="15.0" layoutY="114.0" text="Id">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Label>
+      <Button fx:id="saveButton" layoutX="455.0" layoutY="407.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save and Submit">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Button>
+      <Button fx:id="verifyButton" layoutX="394.0" layoutY="407.0" mnemonicParsing="false" onAction="#onVerifyButtonClick" text="Verify">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Button>
+      <Label layoutX="14.0" layoutY="61.0" text="Petitioner Fields">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="petitionerSSNField" layoutX="101.0" layoutY="263.0" prefHeight="37.0" prefWidth="186.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="14.0" layoutY="274.0" text="SSN">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="350.0" layoutY="61.0" text="Relative Fields">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="relativeNameField" layoutX="469.0" layoutY="157.0" prefHeight="37.0" prefWidth="156.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="351.0" layoutY="167.0" text="Name">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="351.0" layoutY="217.0" text="Date of Birth">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="relativeAlienRegField" layoutX="468.0" layoutY="103.0" prefHeight="37.0" prefWidth="156.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="352.0" layoutY="114.0" text="Alien Registration #">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="relativeNationalityField" layoutX="467.0" layoutY="263.0" prefHeight="37.0" prefWidth="156.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="351.0" layoutY="274.0" text="Nationality">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="formError" layoutX="15.0" layoutY="411.0" text="There was an error when submitting" textFill="RED" visible="false">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Button layoutX="577.0" layoutY="407.0" mnemonicParsing="false" onAction="#onNewForm" text="New Form">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="relativeRelationshipField" layoutX="468.0" layoutY="318.0" prefHeight="37.0" prefWidth="156.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="352.0" layoutY="329.0" text="Relationship">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="formSuccess" layoutX="15.0" layoutY="411.0" text="Successfully submitted the form" textFill="BLUE" visible="false">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="petitionerDobField" layoutX="100.0" layoutY="214.0" />
+      <DatePicker fx:id="relativeDobField" layoutX="467.0" layoutY="214.0" prefHeight="22.0" prefWidth="156.0" />
    </children>
 </AnchorPane>

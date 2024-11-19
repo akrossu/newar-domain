@@ -5,7 +5,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DatabaseConnectionTest {
+class DatabaseConnectionTest {
     @Test
     void setDatabaseConnection() {
         DatabaseConnection dc = new DatabaseConnection();
@@ -14,14 +14,14 @@ public class DatabaseConnectionTest {
 
     @Test
     void getDatabaseContentFromId() {
-        int id = 100;
+        int id = 1;
         Dotenv dotenv = Dotenv.configure().load();
         DatabaseConnection dc = new DatabaseConnection();
         dc.setUser(dotenv.get("USER"));
         dc.setDbUrl(dotenv.get("DB_URL"));
         dc.setPassword(dotenv.get("PASS"));
         Object[] obj = dc.queryDatabase("SELECT * FROM People WHERE id=" + id);
-        assertEquals(100, obj[0]);
+        assertEquals(1, obj[0]);
     }
 
     @Test
