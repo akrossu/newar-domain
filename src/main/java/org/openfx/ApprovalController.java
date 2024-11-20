@@ -27,12 +27,14 @@ public class ApprovalController extends LoginController {
     public void initialize() {
         populateFields();
     }
-    
+    /**
+     * populates Fields in the begining.
+     */
     private void populateFields()
     {
 
         appPetitionerInfo.setText(approvalScreen.displayFields(approvalScreen.getApproval().getImmForm()));
-        errorInfo.setText("Error Info Goes Here");
+        errorInfo.setText(approvalScreen.getErrors());
         approvalResult.setText("Approval message goes here");
     }
 
@@ -57,6 +59,7 @@ public class ApprovalController extends LoginController {
             outputText = outputText.concat(" No new forms!");
         approvalResult.setText(outputText);
         appPetitionerInfo.setText(approvalScreen.displayFields(approvalScreen.getApproval().getImmForm()));
+        errorInfo.setText(approvalScreen.getErrors());
         return true;
     }
     /**
@@ -67,6 +70,7 @@ public class ApprovalController extends LoginController {
         approvalResult.setTextFill(Color.RED);
         approvalResult.setText(approvalScreen.rejectForm());
         appPetitionerInfo.setText(approvalScreen.displayFields(approvalScreen.getApproval().getImmForm()));
+        errorInfo.setText(approvalScreen.getErrors());
         return true;
     }
     

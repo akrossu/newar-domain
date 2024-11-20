@@ -63,8 +63,17 @@ public class ApprovalScreen
         //after completing we should change/Update ImmForm
         //approval.
     }
-
+    /**
+     * getApproval gets the approval.
+     */
     public Approval getApproval() {
         return approval;
+    }
+    /**
+     * get Errors gets any errors
+     */
+    public String getErrors()
+    {
+        return approval.getErrors();
     }
 }

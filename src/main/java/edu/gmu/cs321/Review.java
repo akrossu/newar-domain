@@ -84,12 +84,10 @@ public class Review {
             System.out.println("Error adding form to workflow: " + result);
         }
     }
-        // Method to get the next form in the workflow
-        public int getNextFormInWorkflow() {
-            formID++;
-            return formID;
-            // return workflow.getNextReviewerWFItem();
-        }
-
-
+    // Method to get the next form in the workflow
+    public int getNextFormInWorkflow() {
+        formID++;
+        return formID;
+         // return workflow.getNextReviewerWFItem();
+    }
 }
