@@ -23,6 +23,7 @@ public class Approval
 
     /**
      * For testing, generally to find petitions we need to search for database for pending petitions.
+     * In a later sprint, it will be necessary to have one shared workflow staging with review.
      */
     public Approval()
     {
@@ -101,9 +102,36 @@ public class Approval
 
         return true;
     }
-
+    /**
+     * get immForm
+     */
     public ImmForm getImmForm() {
         return immFormData;
+    }
+
+    /**
+     * display errors
+     */
+    public String getErrors()
+    {
+        if (immFormData==null)
+        {
+            return "No Errors to Display";
+        }
+        Object[] obj = dc.queryDatabase("SELECT * FROM People WHERE relative_alien_reg=" + immFormData.getRelative().getAlienRegistrationNumber());
+        
+        if (obj[0]==null)
+        {
+            return "Possibly Missing Info";
+        }
+        if (obj[3].toString().equals(immFormData.getImmigrant().getSSN()))
+        {
+            return "No Errors";
+        }
+        else
+        {
+            return "Other Immigrant with " + immFormData.getRelative().getName() + " is present";
+        }
     }
 
 }

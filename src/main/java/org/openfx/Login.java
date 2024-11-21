@@ -31,13 +31,13 @@
  */
 
 package org.openfx;
+import java.io.IOException;
+
 import edu.gmu.cs321.WorkflowStaging;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class Login extends Application {
     @Override
