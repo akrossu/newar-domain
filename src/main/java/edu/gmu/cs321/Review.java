@@ -15,7 +15,7 @@ public class Review {
     private ImmForm immForm;
     public WorkflowStaging workflow = new WorkflowStaging();
     public DatabaseConnection dbConnection;
-    private int formID = 1;
+    private int formID = workflow.getNextReviewerWFItem();
     private Dotenv dotenv=Dotenv.configure().load();
 
     //Constructor
@@ -86,9 +86,7 @@ public class Review {
     }
         // Method to get the next form in the workflow
         public int getNextFormInWorkflow() {
-            formID++;
-            return formID;
-            // return workflow.getNextReviewerWFItem();
+            return workflow.getNextReviewerWFItem();
         }
 
 
