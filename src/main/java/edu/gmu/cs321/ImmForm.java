@@ -15,6 +15,10 @@ public class ImmForm {
             this.immigrant = immigrant;
     }
 
+//    public ImmForm(Object[] item) {
+//        this.id = (int) item[1];
+//    }
+
     public boolean validateForm() {
         if (immigrant == null || relative == null) {
             return false; // Fail if critical fields are missing
@@ -39,9 +43,12 @@ public class ImmForm {
         return true;
     }
     public String getFormStatus() {
-        return status; }
+        return this.status;
+    }
+
     public boolean updateFormStatus(String newStatus) {
-        status=newStatus;
+        if (newStatus.equals("Created") || newStatus.equals("Pending")) return false;
+        this.status = newStatus;
         return true;
     }
 }

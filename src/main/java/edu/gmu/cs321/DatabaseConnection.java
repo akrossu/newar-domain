@@ -104,4 +104,37 @@ public class DatabaseConnection {
             //if (stmt != null) stmt.close();
         }
     }
+
+    /*TODO NEW FUNCTION FOR APPROVAL*/
+    public Object[] queryID(int id) {
+        Statement stmt = null;
+        try (Connection connection = DriverManager.getConnection(this.DB_URL, this.USER, this.PASS)) {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM People WHERE id=" + id);
+            rs.next();
+            return new Object[] {
+                    rs.getInt(1), // id
+                    rs.getString(2), // petitioner_name
+                    rs.getDate(3), // petitioner_dob
+                    rs.getString(4), // petitioner_ssn
+                    rs.getString(5), // relative_status
+                    rs.getString(6), // relative_name
+                    rs.getDate(7), // relative_dob
+                    rs.getString(8), // relative_nationality
+                    rs.getString(9) // relative_alien_reg
+            };
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateStatus() {
+        Statement stmt = null;
+        try (Connection connection = DriverManager.getConnection(this.DB_URL, this.USER, this.PASS)) {
+            stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
