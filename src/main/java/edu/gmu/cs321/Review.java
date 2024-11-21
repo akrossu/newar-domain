@@ -13,9 +13,9 @@ public class Review {
      * object variables
      */
     private ImmForm immForm;
-    public WorkflowStaging workflow = new WorkflowStaging();
+    public WorkflowStaging workflow;
     public DatabaseConnection dbConnection;
-    private int formID = workflow.getNextReviewerWFItem();
+    private int formID;
     private Dotenv dotenv=Dotenv.configure().load();
 
     //Constructor
@@ -23,6 +23,9 @@ public class Review {
         this.immForm = immForm;
         dotenv = Dotenv.configure().load();
         dbConnection = new DatabaseConnection();
+        workflow = new WorkflowStaging();
+        workflow.populateWFItems();
+        formID = workflow.getNextReviewerWFItem();
         dbConnection.setUser(dotenv.get("USER"));
         dbConnection.setDbUrl(dotenv.get("DB_URL"));
         dbConnection.setPassword(dotenv.get("PASS"));
