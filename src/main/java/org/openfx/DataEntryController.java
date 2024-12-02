@@ -58,7 +58,7 @@ public class DataEntryController extends LoginController {
                     .setRelationship(relativeRelationshipField.getText())
                     .setDateOfBirth(Date.valueOf(relativeDobField.getValue()))
                     .setName(relativeNameField.getText())
-                    .setCitizenshipStatus("Created")
+                    .setCitizenshipStatus("Pending")
                     .build();
             immForm = new ImmForm(
                     Integer.parseInt(petitionerIdField.getText()),
